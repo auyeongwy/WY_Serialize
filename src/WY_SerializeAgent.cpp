@@ -140,13 +140,13 @@ void WY_SerializeAgent::append_save_file(S_SerializeData *__restrict__ const p_d
     m_file.write((char *)(p_data->m_data), p_data->m_size);
     if(m_file.fail()){
         WY_DebugIO::debug_print("Write to file NOK. Data Type: ");
-        WY_DebugIO::debug_print_int(p_data->m_type);
+        WY_DebugIO::debug_print(p_data->m_type);
         throw -1;
     }
 
     WY_DebugIO::debug_print("Write to file OK. Data Type / size: ");
-    WY_DebugIO::debug_print_int(p_data->m_type);
-    WY_DebugIO::debug_print_int(min_size + p_data->m_size);
+    WY_DebugIO::debug_print(p_data->m_type);
+    WY_DebugIO::debug_print(min_size + p_data->m_size);
 }
 
 
@@ -171,7 +171,7 @@ int WY_SerializeAgent::load_next_serializable_data(S_SerializeData *__restrict__
             memcpy(p_data->m_data, m_file_data+m_file_data_offset, p_data->m_size);
         } catch (std::exception &e) {
             WY_DebugIO::debug_print("Memory alloc error loading data segment. Data Type: ");
-            WY_DebugIO::debug_print_int(p_data->m_type);        
+            WY_DebugIO::debug_print(p_data->m_type);        
             return -1;
         }
     } else
@@ -179,8 +179,8 @@ int WY_SerializeAgent::load_next_serializable_data(S_SerializeData *__restrict__
 
     m_file_data_offset += p_data->m_size;
     WY_DebugIO::debug_print("Data segment loaded. Data Type / size: ");
-    WY_DebugIO::debug_print_int(p_data->m_type);
-    WY_DebugIO::debug_print_int(min_size + p_data->m_size);
+    WY_DebugIO::debug_print(p_data->m_type);
+    WY_DebugIO::debug_print(min_size + p_data->m_size);
     return 0;
 }
 

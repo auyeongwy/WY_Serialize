@@ -25,17 +25,3 @@ void WY_DebugIO::set_debug_print(const bool p_status) noexcept
 {
     m_debug = p_status;
 }
-
-
-void WY_DebugIO::debug_print(const char *__restrict__ const p_msg) noexcept
-{
-    if(m_debug)
-        std::cout << p_msg << "\n";
-}
-
-
-void WY_DebugIO::debug_print_int(const int p_num) noexcept
-{
-    if(m_debug)
-        std::cout << p_num << "\n";    
-}

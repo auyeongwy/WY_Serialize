@@ -42,16 +42,15 @@ public:
     static void set_debug_print(const bool p_status) noexcept;
 
     /**
-     * Prints a debug message to stdout.
+     * Prints a debug message to stdout using a template function.
      * \param p_msg The message to print.
     */
-    static void debug_print(const char *__restrict__ const p_msg) noexcept;
-
-    /**
-     * Prints an integer to stdout. 
-     * \param p_num The interger to print. 
-     */
-    static void debug_print_int(const int p_num) noexcept;
+    template<typename P>
+    static void debug_print(const P p_msg) {
+        if(m_debug) {
+            std::cout << p_msg << "\n";
+        }
+    }
 
 private:
     static bool m_debug; /**< The debug status. */
