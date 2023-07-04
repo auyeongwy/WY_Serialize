@@ -46,7 +46,7 @@ public:
      * \param p_data The loaded data.
      * \return 0 if no error, non-zero if error.
     */     
-    virtual int get_load_data(const unsigned long p_size, const unsigned char *__restrict__ const p_data) noexcept {return -1;};
+    virtual int get_load_data(const unsigned int p_size, const unsigned char *__restrict__ const p_data) noexcept {return -1;};
 
     /**
      * Virtual function to check the serializable data. Specific to implementation, so this can be ignored if so desired.

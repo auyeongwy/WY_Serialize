@@ -103,8 +103,8 @@ private:
     */
     void clear_file_buffer() noexcept;
 
-    unsigned long m_file_data_size; /**< Size of the serializable data. Only used for loading operations. */
-    unsigned long m_file_data_offset; /**< Current offset in m_file_data. */
+    unsigned int m_file_data_size; /**< Size of the serializable data. Only used for loading operations. */
+    unsigned int m_file_data_offset; /**< Current offset in m_file_data. */
     
     std::string m_file_name; /**< Name of the file currently worked on. */
     std::fstream m_file; /**< The serializable file object. Only used for saving operations. */

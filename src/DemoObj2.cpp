@@ -37,7 +37,7 @@ DemoObj2::~DemoObj2()
 }
 
 
-int DemoObj2::set_data(const unsigned long p_size, const unsigned char *__restrict__ const p_data) noexcept
+int DemoObj2::set_data(const unsigned int p_size, const unsigned char *__restrict__ const p_data) noexcept
 {
     clear_data();
     try{
@@ -61,7 +61,7 @@ int DemoObj2::get_save_data(S_SerializeData *__restrict__ const p_data) noexcept
 }
 
 
-int DemoObj2::get_load_data(const unsigned long p_size, const unsigned char *__restrict__ const p_data) noexcept
+int DemoObj2::get_load_data(const unsigned int p_size, const unsigned char *__restrict__ const p_data) noexcept
 {
     clear_data();
     

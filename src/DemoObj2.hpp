@@ -43,7 +43,7 @@ public:
     */
    ~DemoObj2();
 
-   int set_data(const unsigned long p_size, const unsigned char *__restrict__ const p_data) noexcept;
+   int set_data(const unsigned int p_size, const unsigned char *__restrict__ const p_data) noexcept;
 
     /**
      * Implements the WY_SerializeObj virtual function. Mandatory to implement - this returns the data that needs to be saved.
@@ -58,7 +58,7 @@ public:
      * \param p_data The data that needs to be loaded.
      * \return 0 if success. -1 if error - usually I/O error in this implementation. 
     */
-    int get_load_data(const unsigned long p_size, const unsigned char *__restrict__ const p_data) noexcept;
+    int get_load_data(const unsigned int p_size, const unsigned char *__restrict__ const p_data) noexcept;
 
     /**
      * Implements the WY_SerializeObj virtual function. Optional to implement. This function is provided for internal checks of the object data if required.
@@ -76,7 +76,7 @@ private:
      * The data in this demo object. 
      */
     struct {
-        unsigned long s_size; /**< Size of m_data. */
+        unsigned int s_size; /**< Size of m_data. */
         unsigned char * s_data; /**< Dynamically allocated data. */
     } m_data;
 };

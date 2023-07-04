@@ -21,7 +21,7 @@
 using namespace WY_Serialize;
 
 
-WY_SerializeMgr::WY_SerializeMgr(const unsigned long p_size)
+WY_SerializeMgr::WY_SerializeMgr(const unsigned int p_size)
 {    
     m_serializeobj_array = NULL;
     m_file_name.clear();
@@ -51,7 +51,7 @@ void WY_SerializeMgr::save_all_objs(const char *__restrict__ const p_file)
         agent.set_file_name(p_file);
         agent.prepare_save_file();
 
-        for(unsigned long i=0; i<m_serializeobj_array_offset; i++) {
+        for(unsigned int i=0; i<m_serializeobj_array_offset; i++) {
             init_serializable_data(&data);
             m_serializeobj_array[i]->get_save_data(&data);
             agent.append_save_file(&data);            
@@ -73,7 +73,7 @@ void WY_SerializeMgr::load_all_objs(const char *__restrict__ const p_file)
         agent.load_from_file();
         init_serializable_data(&data);
 
-        for(unsigned long i=0; i<m_serializeobj_array_offset; i++) {
+        for(unsigned int i=0; i<m_serializeobj_array_offset; i++) {
             agent.load_next_serializable_data(&data);
             m_serializeobj_array[i]->get_load_data(data.m_size, data.m_data);
             clear_loaded_serializable_data(&data);

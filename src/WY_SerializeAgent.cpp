@@ -130,7 +130,7 @@ void WY_SerializeAgent::finalise_save_file()
 
 void WY_SerializeAgent::append_save_file(S_SerializeData *__restrict__ const p_data)
 {
-    const unsigned long min_size = sizeof(S_SerializeData::m_type) + sizeof(S_SerializeData::m_size); /* Min size of data. */
+    const unsigned int min_size = sizeof(S_SerializeData::m_type) + sizeof(S_SerializeData::m_size); /* Min size of data. */
     if(!m_file.is_open()) {
         WY_DebugIO::debug_print("Trying to save to non-opened file.");
         throw -1;
@@ -158,7 +158,7 @@ void WY_SerializeAgent::clear_loaded_file_buffer() noexcept
 
 int WY_SerializeAgent::load_next_serializable_data(S_SerializeData *__restrict__ const p_data) noexcept
 {
-    const unsigned long min_size = sizeof(S_SerializeData::m_type) + sizeof(S_SerializeData::m_size); /* Min size of data required. */
+    const unsigned int min_size = sizeof(S_SerializeData::m_type) + sizeof(S_SerializeData::m_size); /* Min size of data required. */
     if((m_file_data_size-m_file_data_offset) >= min_size) { /* Is there enough data in m_file_data. */
         memcpy(p_data, m_file_data+m_file_data_offset, min_size);
         m_file_data_offset += min_size;

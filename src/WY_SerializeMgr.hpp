@@ -59,7 +59,7 @@ public:
      * \param p_size Max number of WY_SerializeObj supported. Defaults to 8.
      * \throw Integer exception if error. 
     */
-    WY_SerializeMgr(const unsigned long p_size=8);
+    WY_SerializeMgr(const unsigned int p_size=8);
 
     /**
      * Destructor.
@@ -89,8 +89,8 @@ public:
     int add_serialize_obj(WY_SerializeObj *__restrict__ const p_obj) noexcept;
 
 private:
-    unsigned long m_serializeobj_array_size; /**< Max size of the number of WY_SerializeObj supported. */
-    unsigned long m_serializeobj_array_offset; /**< Current offset of the WY_SerializeObj array. */
+    unsigned int m_serializeobj_array_size; /**< Max size of the number of WY_SerializeObj supported. */
+    unsigned int m_serializeobj_array_offset; /**< Current offset of the WY_SerializeObj array. */
     std::string m_file_name; /**< The current file that is being processed. */
     WY_SerializeObj ** m_serializeobj_array; /**< The array of pointers to WY_SerializeObj. */
 };

@@ -40,7 +40,7 @@ int DemoObj1::get_save_data(S_SerializeData *__restrict__ const p_data) noexcept
 }
 
 
-int DemoObj1::get_load_data(const unsigned long p_size, const unsigned char *__restrict__ const p_data) noexcept
+int DemoObj1::get_load_data(const unsigned int p_size, const unsigned char *__restrict__ const p_data) noexcept
 {
     if(p_size == sizeof(m_data))
     {

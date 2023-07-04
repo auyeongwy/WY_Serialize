@@ -34,8 +34,8 @@ namespace WY_Serialize {
  * Struct for saving serializable data object.
  */
 struct S_SerializeData {
-    unsigned long m_type; /**< Type of data, defined from enum SERIALIZE_TYPE. */
-    unsigned long m_size; /**< Size of the serializable data. */
+    unsigned int m_type; /**< Type of data, defined from enum SERIALIZE_TYPE. */
+    unsigned int m_size; /**< Size of the serializable data. */
     unsigned char * m_data; /**< The data itself. */
 };
 
@@ -55,7 +55,7 @@ inline void init_serializable_data(S_SerializeData *__restrict__ const p_data) n
  * \param p_data The S_SerializeData structure to get the size from.
  * \return Size of p_data.
  */
-inline unsigned long get_total_data_len(S_SerializeData *__restrict__ const p_data) noexcept {
+inline unsigned int get_total_data_len(S_SerializeData *__restrict__ const p_data) noexcept {
     return sizeof(p_data->m_type) + sizeof(p_data->m_size) + p_data->m_size;
 }
 

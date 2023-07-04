@@ -1,3 +1,4 @@
+[TOC]
 Introduction
 ============
 WY_Serialize is a C++ library that provides serialization capabilities to other applications. Meaning that applications can save the different data state of their components to a savefile and load it back. Said applications have to manage what data to save and what data to load, but WY_Serialize provides an API that abstracts the saving and loading features, including a save/load structure/flow that hopefully helps applications implement these features easily.
@@ -22,7 +23,7 @@ DemoObj1.hpp \n
 DemoObj1.cpp \n
 DemoObj2.hpp \n
 DemoObj2.cpp \n
-
+\n
 To build the library and application, just go into the build directory and enter "make".
 
 Explanation of Implementation
@@ -32,23 +33,23 @@ Saving A File
 -------------
 To save any data to a file, 
 - The data needs to be encapsulated in an class that inherits the WY_SerializeObj class.
-- Said class needs to implement the get_save_data() virtual function.
+- Said class needs to implement the WY_SerializeObj::get_save_data() virtual function.
 - Said function is of course, application-specific so you have to implement exactly what needs to be saved. See the DemoObj1 and DemoObj2 sample codes for examples.
-- Add a pointer of this object to a WY_SerializeMgr object using the add_serialize_obj() function.
+- Add a pointer of this object to a WY_SerializeMgr object using the WY_SerializeMgr::add_serialize_obj() function.
 - The order in which object pointers are added to WY_SerializeMgr will be the order in which their data will be saved.
-- Call WY_SerializeMgr save_all_objs() to save data to a file.
-- The save_all_objs() function will call the get_save_data() function in every WY_SerializeObj object added to WY_SerializeMgr to retrieve the data that needs to be saved and save it to file.
+- Call WY_SerializeMgr::save_all_objs() to save data to a file.
+- The WY_SerializeMgr::save_all_objs() function will call the WY_SerializeObj::get_save_data() function in every WY_SerializeObj object added to WY_SerializeMgr to retrieve the data that needs to be saved and save it to file.
 
 Loading A File
 --------------
 To load data from a file, 
 - The data needs to be encapsulated in an class that inherits the WY_SerializeObj class.
-- Said class needs to implement the get_load_data() virtual function.
+- Said class needs to implement the WY_SerializeObj::get_load_data() virtual function.
 - Said function is of course, application-specific so you have to implement how to copy loaded data from the file into your object. See the DemoObj1 and DemoObj2 sample codes for examples.
-- Add a pointer of this object to a WY_SerializeMgr object using the add_serialize_obj() function.
+- Add a pointer of this object to a WY_SerializeMgr object using the WY_SerializeMgr::add_serialize_obj() function.
 - The order in which object pointers are added to WY_SerializeMgr will be the order in which their data will be loaded.
-- Call WY_SerializeMgr load_all_objs() to load data from a file.
-- The load_all_objs() function will call the get_load_data() function in every WY_SerializeObj object added to WY_SerializeMgr to load the data that needs to be loaded into each object.
+- Call WY_SerializeMgr::load_all_objs() to load data from a file.
+- The WY_SerializeMgr::load_all_objs() function will call the WY_SerializeObj::get_load_data() function in every WY_SerializeObj object added to WY_SerializeMgr to load the data that needs to be loaded into each object.
 
 Memory Management
 -----------------

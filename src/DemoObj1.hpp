@@ -51,7 +51,7 @@ public:
      * \param p_data The data that needs to be loaded.
      * \return 0 if success. -1 if error - usually I/O error in this implementation. 
     */
-    int get_load_data(const unsigned long p_size, const unsigned char *__restrict__ const p_data) noexcept;
+    int get_load_data(const unsigned int p_size, const unsigned char *__restrict__ const p_data) noexcept;
 
     /**
      * Implements the WY_SerializeObj virtual function. Optional to implement. This function is provided for internal checks of the object data if required.
