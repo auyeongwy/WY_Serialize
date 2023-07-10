@@ -1,1 +1,7 @@
+WY_Serialize is a C++ library that provides serialization capabilities to other applications. This means applications can save the different data state of their components to a savefile and load it back. Or an even simpler way of explaining it - it allows applications to create save files and load it back.
+
+Of course applications will have to manage what data to save and what data to load. WY_Serialize provides an API that abstracts the saving and loading features, including a save/load structure/flow that hopefully helps applications implement these features easily.
+
+The library is developed on a Linux system, so some porting effort may be required to build it on other systems. I have adhered to using only standard C++ library APIs so hopefully the only porting effort required is to modify the build system.
+
 Refer to documentation in "doc" directory for detailed descriptions.

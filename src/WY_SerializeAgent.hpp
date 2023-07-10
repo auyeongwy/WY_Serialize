@@ -25,28 +25,28 @@ namespace WY_Serialize
 {
 
 /** Implements serialization.
- * Usage: \n
- * \n
- * WY_SerializeAgent agent; \n
- * S_SerializableData s_data; \n
- * init_serializable_data(&s_data); \n
- * ... // Copy serializable data into s_data. \n
- * \n
- * try { \n
- *  agent.set_file_name("savefile"); \n
- *  agent.prepare_save_file(); \n
- *  agent.append_save_file(&s_data); // Writes data to file. \n
- *  agent.finalise_save_file(); // Saves the file. \n
- *  \n
- *  ..... \n
- *  agent.load_from_file(); // Load all file content into memory. \n
- *  init_serializable_data(&s_data); // Clean up the data structure before use. \n
- *  agent.get_next_serializable_data(&s_data); // Gets the next chunk of serializable data. \n
- *  .... // Copy and process the data in s_data as required. \n
- *  agent.clear_loaded_serializable_data(&s_data); \n
- * } catch (int &e) { \n
- *  std::cout << "IO error" << "\n"; \n
- * } \n
+ * Usage: <br>
+ * <br>
+ * @code
+ * WY_SerializeAgent agent; 
+ * S_SerializableData s_data; 
+ * init_serializable_data(&s_data); 
+ * // ... Copy serializable data into s_data. 
+ * 
+ * try { 
+ *  agent.set_file_name("savefile"); 
+ *  agent.prepare_save_file(); 
+ *  agent.append_save_file(&s_data); // Writes data to file. 
+ *  agent.finalise_save_file(); // Saves the file. 
+ *  agent.load_from_file(); // Load all file content into memory. 
+ *  init_serializable_data(&s_data); // Clean up the data structure before use. 
+ *  agent.get_next_serializable_data(&s_data); // Gets the next chunk of serializable data. 
+ *  .... // Copy and process the data in s_data as required. 
+ *  agent.clear_loaded_serializable_data(&s_data); 
+ * } catch (int &e) { 
+ *  std::cout << "IO error" << "\n"; 
+ * } 
+ * @endcode
  */
 class WY_SerializeAgent
 {

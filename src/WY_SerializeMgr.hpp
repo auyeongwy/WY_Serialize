@@ -26,29 +26,30 @@ namespace WY_Serialize
 /**
  * Implements the serialization manager. 
  *  
- * Each application has its own unique serialization structure. Some may have components which are developed by different teams that need to be serialized. The strategy is that a manager class orchestrates all the different components that need to save or load data. It decides what order will the data be saved or loaded, what happens if there is an error, etc. The different teams in charge of the different components will have to inherit the WY_SerializeObj abstract class and implement their own save() and load() functions for serialization. \n
- * \n
- * In this manner, each serializable component is wholly in charge of what data to save and how to load their saved data retrieved from a save file. They can make changes to their own data and only need to ensure their save() and load() functions are correctly implemented. No code changes are required in this WY_SerializeMgr class. \n
- * \n
- * Example usage: \n
- * \n
- * #include "WY_DebugIO.hpp" // Optional to use debug print. \n
- * #include "WY_SerializeMgr.hpp" \n
- * using namespace WY_Serialize; \n
- * ...... \n
- * set_debug_print(true); // Optional to use debug print. \n
- * DemoObj1 obj1; // Object that inherits and implements the WY_SerializeObj class. \n
- * DemoObj2 obj2; // Object that inherits and implements the WY_SerializeObj class. \n
- * try { \n
- *  C_SerializeMgr mgr; \n
- *  mgr.add_serialize_obj(&obj1); \n
- *  mgr.add_serialize_obj(&obj2); \n
- *  mgr.save_all_objs(); // Saves data to file. \n
- * } catch (int &e) { \n
- *      std::cout << "IO errors" << "\n"; \n
- * } \n
- * \n
- * mgr.save_all_objs(); \n 
+ * Each application has its own unique serialization structure. Some may have components which are developed by different teams that need to be serialized. The strategy is that a manager class orchestrates all the different components that need to save or load data. It decides what order will the data be saved or loaded, what happens if there is an error, etc. The different teams in charge of the different components will have to inherit the WY_SerializeObj abstract class and implement their own save() and load() functions for serialization. <br>
+ * <br>
+ * In this manner, each serializable component is wholly in charge of what data to save and how to load their saved data retrieved from a save file. They can make changes to their own data and only need to ensure their save() and load() functions are correctly implemented. No code changes are required in this WY_SerializeMgr class. <br>
+ * <br>
+ * Example usage: <br>
+ * <br>
+ * @code
+ * #include "WY_DebugIO.hpp" // Optional to use debug print. 
+ * #include "WY_SerializeMgr.hpp" 
+ * using namespace WY_Serialize; 
+ * set_debug_print(true); // Optional to use debug print. 
+ * DemoObj1 obj1; // Object that inherits and implements the WY_SerializeObj class. 
+ * DemoObj2 obj2; // Object that inherits and implements the WY_SerializeObj class. 
+ * try { 
+ *  C_SerializeMgr mgr; 
+ *  mgr.add_serialize_obj(&obj1); 
+ *  mgr.add_serialize_obj(&obj2); 
+ *  mgr.save_all_objs(); // Saves data to file. 
+ * } catch (int &e) { 
+ *      std::cout << "IO errors" << "\n"; 
+ * } 
+ * 
+ * mgr.save_all_objs(); 
+ * @endcode 
  * 
  */
 class WY_SerializeMgr

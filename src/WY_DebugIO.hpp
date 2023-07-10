@@ -23,14 +23,15 @@ namespace WY_Serialize {
 /**
  * Provides debug print static functions. 
  * 
- * By default, debug IO is deactivated so calls to this function will not do anything though there is a function call and variable check overhead. This is usually integrated in a latency-heavy function such as IO-based function calls so we don't care about the overhead - the IO itself is high latency. \n
- * \n
- * Usage: \n
- * C_Debug_IO::set_debug_print(true); // Debug print won't do anything unless this is called. \n
- * C_Debug_IO::debug_print("Debug print is activated."); \n
- * ... \n
- * C_Debug_IO::set_debug_print(false); \n
- * C_Debug_IO::debug_print("Test."); // Nothing happens as debug print is deactivated. \n
+ * By default, debug IO is deactivated so calls to this function will not do anything though there is a function call and variable check overhead. This is usually integrated in a latency-heavy function such as IO-based function calls so we don't care about the overhead - the IO itself is high latency. <br>
+ * <br>
+ * Usage: <br>
+ * @code
+ * C_Debug_IO::set_debug_print(true); // Debug print won't do anything unless this is called. 
+ * C_Debug_IO::debug_print("Debug print is activated.");  
+ * C_Debug_IO::set_debug_print(false); 
+ * C_Debug_IO::debug_print("Test."); // Nothing happens as debug print is deactivated. 
+ * @endcode
  */
 class WY_DebugIO
 {

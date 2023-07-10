@@ -18,17 +18,9 @@
 #define _WY_SERIALIZE_DEF_HPP_
 
 #include <cstddef>
-
-namespace WY_Serialize {
-
-/** 
- * Provides IDs to the different serializable types. Overwrite the IDs here for different implementations.
- */
-/*enum SERIALIZE_TYPE {
-    DEMO_OBJ1 = 1,
-    DEMO_OBJ2
-};*/
-
+#pragma once
+namespace WY_Serialize 
+{
 
 /** 
  * Struct for saving serializable data object.
