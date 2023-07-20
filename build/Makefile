@@ -1,10 +1,10 @@
 CC = g++
 CFLAGS = -O2 -Wall -march=native
-#CFLAGS = -Wall -O2 -std=c++17 -fsanitize=address -static-libasan -g3 -march=native
+#CFLAGS = -Wall -std=c++17 -fsanitize=address -static-libasan -g3 -march=native
 BUILD = ../build
 SRC = ../src
 LIB = -L$(BUILD)
-TARGETLIB = $(BUILD)/WY_Serialize.a
+TARGETLIB = $(BUILD)/lib_WY_Serialize.a
 HEADERS = $(SRC)/WY_SerializeAgent.hpp $(SRC)/WY_SerializeDef.hpp $(SRC)/WY_SerializeObj.hpp $(SRC)/WY_DebugIO.hpp $(SRC)/WY_SerializeTypes.hpp
 OBJS = $(BUILD)/WY_SerializeAgent.o $(BUILD)/WY_DebugIO.o $(BUILD)/WY_SerializeMgr.o
 DEMOOBJS = $(BUILD)/DemoObj1.o $(BUILD)/DemoObj2.o 
