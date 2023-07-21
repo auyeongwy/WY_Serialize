@@ -1,6 +1,6 @@
 CC = g++
-CFLAGS = -O2 -Wall -march=native
-#CFLAGS = -Wall -std=c++17 -fsanitize=address -static-libasan -g3 -march=native
+CFLAGS = -O2 -Wall -march=native -DENABLE_WY_DEBUGIO
+#CFLAGS = -Wall -std=c++17 -fsanitize=address -static-libasan -g3 -march=native -DENABLE_WY_DebugIO
 BUILD = ../build
 SRC = ../src
 LIB = -L$(BUILD)

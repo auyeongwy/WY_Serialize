@@ -18,10 +18,13 @@
 #include "WY_DebugIO.hpp" 
 using namespace WY_Serialize;
 
-
+#ifdef ENABLE_WY_DEBUGIO
 bool WY_DebugIO::m_debug = false;
+#endif
 
 void WY_DebugIO::set_debug_print(const bool p_status) noexcept
 {
+    #ifdef ENABLE_WY_DEBUGIO
     m_debug = p_status;
+    #endif
 }

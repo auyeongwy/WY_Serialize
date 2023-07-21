@@ -39,9 +39,11 @@ To compile, enter the build directory and enter "make". This generates:
 
 The Makefile uses the following compilation flags by default. So modify these flags for your own build system.
 
-    CFLAGS = -O2 -Wall -march=native
+    CFLAGS = -O2 -Wall -march=native -DENABLE_WY_DEBUGIO
 
 To use the library in your own application, include the necessary header files in your code and link to the library file.
+
+`make clean` cleans up the object files. `make distclean` removes the library file and demo application as well. 
 
 Explanation of Implementation
 =============================
@@ -72,3 +74,13 @@ Memory Management
 -----------------
 WY_SerializeMgr will not deallocate the WY_SerializeObj objects added to it. Deallocation of these will have to be handled externally AFTER the WY_SerializeMgr itself is deallocated.
 
+Debug IO
+--------
+The library uses the functions provided by the WY_DebugIO class to print debug messages. This gives the flexibility to deactive or activate all debug print messages globally as required. For example:
+
+    C_Debug_IO::set_debug_print(true); // Debug print won't do anything unless this is called. 
+    C_Debug_IO::debug_print("Debug print is activated.");  
+    C_Debug_IO::set_debug_print(false); 
+    C_Debug_IO::debug_print("Test."); // Nothing happens as debug print is deactivated.
+
+If debug printing is really not required, we can optimize further by NOT passing the ENABLE_WY_DEBUGIO macro during compilation. (Example: g++ -DENABLE_WY_DEBUGIO) 
